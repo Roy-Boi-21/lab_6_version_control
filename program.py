@@ -10,9 +10,14 @@ def encode(passcode):
             new_passcode += chr(ord(character) - 7)
     return new_passcode
 
-
-# FIXME: There needs to be a decoding function.  Here would be good.
-
+# Function to decode encoded password
+def decoder(encoded_password):
+    key = "7890123456"
+    decoded_password = ""
+    for digit in encoded_password:
+        digit = int(digit)
+        decoded_password += key[digit]
+    return decoded_password
 
 def main():
     encoded_passcode = ""
@@ -40,7 +45,7 @@ def main():
             else:
                 print("Invalid passcode!  Only input integers please.")
         elif choice == "2":
-            pass  # FIXME: This is placeholder code that's waiting on a decoding function to be implemented.
+            print(f"The encoded password is {encoded_passcode}, and the original password is {decoder(encoded_passcode)}")
         elif choice == "3":
             break
         else:
